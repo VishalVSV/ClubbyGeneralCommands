@@ -1,5 +1,7 @@
 # ClubbyGeneralCommands
-The source code for commands used for basic club activities
+![Clubby](https://raw.githubusercontent.com/VishalVSV/Clubby/master/Images/BotProfile.png)<br>
+The source code for commands used for basic club activities.
+
 
 ## List of commands
 1. `+announcement`<br>
