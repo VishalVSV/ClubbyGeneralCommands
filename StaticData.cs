@@ -6,6 +6,7 @@ using ClubbyGeneralCommands.Commands;
 using Discord;
 using Discord.WebSocket;
 using System;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ClubbyGeneralCommands
@@ -25,8 +26,8 @@ namespace ClubbyGeneralCommands
         };
         private static int current_status = 0;
 
-        private static bool christmas_done = false;
-        private static bool friday_done = false;
+        private static bool Y2hyaXN0bWFzX2RvbmU = false;
+        private static bool ZnJpZGF5X2RvbmU = false;
 
         public static void Init(DiscordBot data)
         {
@@ -44,15 +45,15 @@ namespace ClubbyGeneralCommands
                 DateTime now = DateTime.Now;
                 if (now.Day == 13 && now.DayOfWeek == DayOfWeek.Friday)
                 {
-                    if (!friday_done)
+                    if (!ZnJpZGF5X2RvbmU)
                     {
-                        data.client.SetActivityAsync(new Game("Spooky scary skeletons", ActivityType.Listening));
-                        friday_done = true;
+                        data.client.SetActivityAsync(new Game(Encoding.UTF8.GetString(Convert.FromBase64String("U3Bvb2t5IHNjYXJ5IHNrZWxldG9ucw==")), ActivityType.Listening));
+                        ZnJpZGF5X2RvbmU = true;
                     }
                 }
                 else if (now.Day == 25 && now.Month == 12)
                 {
-                    if (!christmas_done)
+                    if (!Y2hyaXN0bWFzX2RvbmU)
                     {
                         var guild = data.client.GetGuild(Clubby.Program.config.DiscordGuildId);
                         if (guild != null)
@@ -62,21 +63,21 @@ namespace ClubbyGeneralCommands
                             {
                                 if (channel.Name == "slack")
                                 {
-                                    channel.SendMessageAsync("Merry christmas!");
+                                    channel.SendMessageAsync(Encoding.UTF8.GetString(Convert.FromBase64String("TWVycnkgY2hyaXN0bWFzIQ==")));
                                 }
                             }
                         }
 
-                        data.client.SetActivityAsync(new Game("Christmas carols", ActivityType.Listening));
-                        christmas_done = true;
+                        data.client.SetActivityAsync(new Game(Encoding.UTF8.GetString(Convert.FromBase64String("Q2hyaXN0bWFzIGNhcm9scw==")), ActivityType.Listening));
+                        Y2hyaXN0bWFzX2RvbmU = true;
                     }
                 }
                 else
                 {
-                    if (christmas_done)
-                        christmas_done = false;
-                    if (friday_done)
-                        friday_done = false;
+                    if (Y2hyaXN0bWFzX2RvbmU)
+                        Y2hyaXN0bWFzX2RvbmU = false;
+                    if (ZnJpZGF5X2RvbmU)
+                        ZnJpZGF5X2RvbmU = false;
 
                     current_status %= statuses.Length;
                     data.client.SetActivityAsync(statuses[current_status]);
